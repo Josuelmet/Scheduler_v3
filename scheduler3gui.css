@@ -1,0 +1,7 @@
+QMainWindow {
+    background-color:darkgray;
+}
+
+QPushButton, QLabel {
+    font:600;
+}
