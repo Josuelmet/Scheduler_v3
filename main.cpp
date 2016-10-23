@@ -3,7 +3,6 @@
 int main(int argc, char *argv[])
 {
 	Prompter *prompt = new Prompter(argc, argv);
-	//TODO:jcr Sync with online branch.
 	//TODO:jcr Throw exceptions that can be read if guiSuccess != 0 and if parentPrompter == nullptr.
 	//throw exception("ha"); //?
 	//TODO:jcr Figure out how to qDebug() contents of a QString*.
