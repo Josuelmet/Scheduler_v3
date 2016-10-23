@@ -4,6 +4,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_scheduler3gui.h"
 #include "Task.h"
+#include "Prompter.h"
 
 
 namespace Ui {
@@ -19,6 +20,8 @@ public:
 	explicit Scheduler3GUI(QWidget *parent = 0);
 	~Scheduler3GUI();
 
+	void setPrompter(Prompter *p);
+
 	static const int INPUTS_PER_TASK = 3;
 
 
@@ -26,6 +29,7 @@ private:
 	Ui::Scheduler3GUIClass *ui;
 	QGridLayout *gridScrollLayout;
 	QWidget *scrollContents;
+	Prompter *parentPrompter;
 
 	static const int GRID_INDEX_OF_INIT_TIME = 0;
 	static const int GRID_INDEX_OF_DESCRIPTION = 1;
@@ -35,6 +39,7 @@ private:
 	void initializeCSS(const char *ch);
 	string getTimeAsString(QWidget* timeWidget);
 	QWidget* getWidgetAtPosition(int row, int column);
+	Task* getTaskInputAt(int row);
 	vector<Task*>* getTaskInputs();
 
 

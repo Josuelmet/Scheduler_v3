@@ -9,6 +9,9 @@ Prompter::Prompter(int argc, char *argv[])
 	tasks = new vector<Task*>();
 	//Run Scheduler GUI.
 	int guiSuccess = runScheduler3GUI(argc, argv);
+
+	if (guiSuccess != 0)
+		throw guiSuccess;
 }
 
 
@@ -29,6 +32,7 @@ int Prompter::runScheduler3GUI(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	Scheduler3GUI w;
+	w.setPrompter(this);
 	w.show();
 	return a.exec();
 }

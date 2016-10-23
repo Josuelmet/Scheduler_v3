@@ -75,6 +75,9 @@
     <ClInclude Include="Prompter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Scheduler_v3.rc" />

@@ -25,6 +25,12 @@ Scheduler3GUI::~Scheduler3GUI()
 }
 
 
+void Scheduler3GUI::setPrompter(Prompter *p)
+{
+	parentPrompter = p;
+}
+
+
 //Use signals and slots to connect buttons to their handlers.
 void Scheduler3GUI::initializeButtons()
 {
@@ -65,6 +71,25 @@ QWidget* Scheduler3GUI::getWidgetAtPosition(int row, int column)
 }
 
 
+Task* Scheduler3GUI::getTaskInputAt(int row)
+{
+	//Get the QLineEdit and its text input from this task (row).
+	QLineEdit *description = dynamic_cast<QLineEdit*>(getWidgetAtPosition(row, GRID_INDEX_OF_DESCRIPTION));
+	string descriptionText = description->text().simplified().toStdString();
+
+	//Skip the row if the description is blank.
+	if (!descriptionText.compare("")) //compare returns 0 if the two QStrings are equal; reverse the returned value.
+		return nullptr;
+
+	//Get the time inputs in this task as strings.
+	string initTimeText = getTimeAsString(getWidgetAtPosition(row, GRID_INDEX_OF_INIT_TIME));
+	string endTimeText = getTimeAsString(getWidgetAtPosition(row, GRID_INDEX_OF_END_TIME));
+
+	//Add a new Task to the tasks.
+	return new Task(initTimeText, descriptionText, endTimeText);
+}
+
+
 vector<Task*>* Scheduler3GUI::getTaskInputs()
 {
 	//NOTE:jcr This does not take into account any Spacers (if any).
@@ -77,22 +102,10 @@ vector<Task*>* Scheduler3GUI::getTaskInputs()
 	//Cycle through each row of the grid, starting after Labels or Spacers.
 	for (int row = INDEX_OF_FIRST_TASK; row < gridScrollLayout->rowCount(); row++)
 	{
-		//Get the QLineEdit and its text input from this task (row).
-		QLineEdit *description = dynamic_cast<QLineEdit*>(getWidgetAtPosition(row, GRID_INDEX_OF_DESCRIPTION));
-		string descriptionText = description->text().simplified().toStdString();
-
-		//Skip the row if the description is blank.
-		if (!descriptionText.compare("")) //compare returns 0 if the two QStrings are equal; reverse the returned value.
-		{
+		Task* taskInput = getTaskInputAt(row);
+		if (taskInput == nullptr)
 			continue;
-		}
-
-		//Get the time inputs in this task as strings.
-		string initTimeText = getTimeAsString(getWidgetAtPosition(row, GRID_INDEX_OF_INIT_TIME));
-		string endTimeText = getTimeAsString(getWidgetAtPosition(row, GRID_INDEX_OF_END_TIME));
-
-		//Add a new Task to the tasks.
-		tasksEntered->push_back(new Task(descriptionText, initTimeText, endTimeText));
+		tasksEntered->push_back(taskInput);
 	}
 
 	return tasksEntered;
@@ -116,5 +129,18 @@ void Scheduler3GUI::handleAddTask()
 void Scheduler3GUI::handleEnter()
 {
 	vector<Task*>* tasks = getTaskInputs();
+	parentPrompter->setTasks(tasks);
 	qDebug() << tasks;
+	/*for (std::vector<Task*>::iterator task = tasks->begin(); task != tasks->end(); ++task)
+	{
+	task.
+	}*/
+	for (std::vector<Task*>::size_type i = 0; i != tasks->size(); i++) {
+		for (int ch = 0; ch < 5; ch++)
+		{
+			QString *str = new QString(tasks->at(i)->taskDescription.at(ch));
+			qDebug() << str->at(0);
+		}
+		//tasks[i]
+	}
 }

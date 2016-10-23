@@ -202,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_scheduler3gui.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Prompter.h" />
     <ClInclude Include="Task.h" />
   </ItemGroup>

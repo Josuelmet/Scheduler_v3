@@ -1,23 +1,26 @@
-#include "scheduler3gui.h"
-#include <QtWidgets/QApplication>
+#include "main.h"
 
 int main(int argc, char *argv[])
 {
-	//TODO:jcr Throw guiSuccess in Prompter if the GUI did not run successfully.
+	Prompter *prompt = new Prompter(argc, argv);
+	//TODO:jcr Sync with online branch.
+	//TODO:jcr Throw exceptions that can be read if guiSuccess != 0 and if parentPrompter == nullptr.
+	//throw exception("ha"); //?
+	//TODO:jcr Figure out how to qDebug() contents of a QString*.
 	//TODO:jcr Look at the JavaFX project to see how the post-GUI execution (e.g., secondMain) works.
-	//TODO:jcr Check the text output by using qDebug().
-	/*
-	For the text output, primarily use:
-	for(std::vector<T>::iterator it = v.begin(); it != v.end(); ++it)
-	{
-    it->doSomething();
-	}
-	OR
-	for(std::vector<T>::size_type i = 0; i != v.size(); i++) {
-	v[i].doSomething();
-	}
-	*/
-	//TODO: Make a new Prompter here in main.
-	//TODO: Add the other features of the JavaFX (e.g., Writer) to this project.
-	//TODO: Add the Desktop opener to main.
+	//TODO:jcr Figure out how to use iterator for loops.
+	//TODO:jcr Close the GUI when Enter is pressed.
+	//TODO:jcr Execute the rest of this program when Enter is pressed.
+	//TODO:jcr Add the other features of the JavaFX (e.g., Writer) to this project.
+	//TODO:jcr Add the Desktop opener to main.
+	//TODO:jcr The first task goes from right to left when using Tab - why? Order of instantiation in the XML?s
+	//TODO:jcr Check if parentPrompter in scheduler3gui.cpp is null before using it in handleEnter()?
+	return 0;
+
+}
+
+
+void Main::resumeMain()
+{
+	//code here
 }
