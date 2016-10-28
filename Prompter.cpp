@@ -3,6 +3,7 @@
 #include <QtWidgets/QApplication>
 
 
+
 Prompter::Prompter(int argc, char *argv[])
 {
 	//Create and initialize tasks.
@@ -11,7 +12,7 @@ Prompter::Prompter(int argc, char *argv[])
 	int guiSuccess = runScheduler3GUI(argc, argv);
 
 	if (guiSuccess != 0)
-		throw guiSuccess;
+		throw std::runtime_error("GUI Failed");
 }
 
 

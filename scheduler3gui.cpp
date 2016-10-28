@@ -28,6 +28,8 @@ Scheduler3GUI::~Scheduler3GUI()
 void Scheduler3GUI::setPrompter(Prompter *p)
 {
 	parentPrompter = p;
+	if (parentPrompter == nullptr)
+		throw std::invalid_argument("received negative value");
 }
 
 

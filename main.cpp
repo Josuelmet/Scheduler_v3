@@ -3,8 +3,7 @@
 int main(int argc, char *argv[])
 {
 	Prompter *prompt = new Prompter(argc, argv);
-	//TODO:jcr Throw exceptions that can be read if guiSuccess != 0 and if parentPrompter == nullptr.
-	//throw exception("ha"); //?
+	//TODO:jcr Throw exceptions that can be read if parentPrompter == nullptr.
 	//TODO:jcr Figure out how to qDebug() contents of a QString*.
 	//TODO:jcr Look at the JavaFX project to see how the post-GUI execution (e.g., secondMain) works.
 	//TODO:jcr Figure out how to use iterator for loops.
