@@ -29,7 +29,7 @@ void Scheduler3GUI::setPrompter(Prompter *p)
 {
 	parentPrompter = p;
 	if (parentPrompter == nullptr)
-		throw std::invalid_argument("received negative value");
+		throw std::invalid_argument("Received a null Prompter");
 }
 
 
@@ -138,11 +138,10 @@ void Scheduler3GUI::handleEnter()
 	task.
 	}*/
 	for (std::vector<Task*>::size_type i = 0; i != tasks->size(); i++) {
-		for (int ch = 0; ch < 5; ch++)
-		{
-			QString *str = new QString(tasks->at(i)->taskDescription.at(ch));
-			qDebug() << str->at(0);
-		}
+		qDebug() << QString::fromStdString(tasks->at(i)->initTime);
+		qDebug() << QString::fromStdString(tasks->at(i)->taskDescription);
+		qDebug() << QString::fromStdString(tasks->at(i)->endTime);
+		qDebug() << "-----------------------------------------";
 		//tasks[i]
 	}
 }
