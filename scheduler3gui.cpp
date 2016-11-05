@@ -1,3 +1,4 @@
+#include "main.h"
 #include "scheduler3gui.h"
 #include "Task.h"
 #include <QDebug>
@@ -133,15 +134,21 @@ void Scheduler3GUI::handleEnter()
 	vector<Task*>* tasks = getTaskInputs();
 	parentPrompter->setTasks(tasks);
 	qDebug() << tasks;
-	/*for (std::vector<Task*>::iterator task = tasks->begin(); task != tasks->end(); ++task)
+	for (std::vector<Task*>::iterator task = tasks->begin(); task != tasks->end(); ++task)
 	{
-	task.
-	}*/
+		Task *thisTask = *task;
+		qDebug() << QString::fromStdString(thisTask->initTime);
+		qDebug() << QString::fromStdString(thisTask->taskDescription);
+		qDebug() << QString::fromStdString(thisTask->endTime);
+		qDebug() << "-----------------------------------------";
+	}
+	/*
 	for (std::vector<Task*>::size_type i = 0; i != tasks->size(); i++) {
 		qDebug() << QString::fromStdString(tasks->at(i)->initTime);
 		qDebug() << QString::fromStdString(tasks->at(i)->taskDescription);
 		qDebug() << QString::fromStdString(tasks->at(i)->endTime);
 		qDebug() << "-----------------------------------------";
 		//tasks[i]
-	}
+	}*/
+	Main::resumeMain();
 }

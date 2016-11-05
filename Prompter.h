@@ -1,8 +1,10 @@
 #ifndef PROMPTER_H
 #define PROMPTER_H
 
-#include <vector>
+#include <QtWidgets/QApplication>
 #include "Task.h"
+#include <vector>
+
 
 class Prompter
 {
@@ -16,6 +18,7 @@ public:
 
 
 private:
+	QApplication *a;
 	vector<Task*> *tasks;
 
 	int runScheduler3GUI(int argc, char *argv[]);

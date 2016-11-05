@@ -1,6 +1,5 @@
 #include "scheduler3gui.h"
 #include "Prompter.h"
-#include <QtWidgets/QApplication>
 
 
 
@@ -8,9 +7,10 @@ Prompter::Prompter(int argc, char *argv[])
 {
 	//Create and initialize tasks.
 	tasks = new vector<Task*>();
+
 	//Run Scheduler GUI.
 	int guiSuccess = runScheduler3GUI(argc, argv);
-
+	//Throw an error if the GUI execution did not return 0.
 	if (guiSuccess != 0)
 		throw std::runtime_error("GUI Failed");
 }
@@ -31,9 +31,9 @@ vector<Task*>* Prompter::getTasks()
 
 int Prompter::runScheduler3GUI(int argc, char *argv[])
 {
-	QApplication a(argc, argv);
+	a = new QApplication(argc, argv);
 	Scheduler3GUI w;
 	w.setPrompter(this);
 	w.show();
-	return a.exec();
+	return a->exec();
 }

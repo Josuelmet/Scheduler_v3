@@ -4,7 +4,6 @@ int main(int argc, char *argv[])
 {
 	Prompter *prompt = new Prompter(argc, argv);
 	//TODO:jcr Look at the JavaFX project to see how the post-GUI execution (e.g., secondMain) works.
-	//TODO:jcr Figure out how to use iterator for loops.
 	//TODO:jcr Close the GUI when Enter is pressed.
 	//TODO:jcr Execute the rest of this program when Enter is pressed.
 	//TODO:jcr Add the other features of the JavaFX (e.g., Writer) to this project.
