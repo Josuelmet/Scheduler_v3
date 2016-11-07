@@ -26,11 +26,11 @@ Scheduler3GUI::~Scheduler3GUI()
 }
 
 
-void Scheduler3GUI::setPrompter(Prompter *p)
+void Scheduler3GUI::setPrompter(Prompter* prompter)
 {
-	parentPrompter = p;
-	if (parentPrompter == nullptr)
-		throw std::invalid_argument("Received a null Prompter");
+	if (prompter == nullptr)
+		throw std::invalid_argument("Prompter is null");
+	parentPrompter = prompter;
 }
 
 
@@ -131,9 +131,9 @@ void Scheduler3GUI::handleAddTask()
 
 void Scheduler3GUI::handleEnter()
 {
-	vector<Task*>* tasks = getTaskInputs();
-	parentPrompter->setTasks(tasks);
-	qDebug() << tasks;
+	parentPrompter->setTasks(getTaskInputs());
+	qDebug() << "Pressed Enter";
+	/*qDebug() << tasks;
 	for (std::vector<Task*>::iterator task = tasks->begin(); task != tasks->end(); ++task)
 	{
 		Task *thisTask = *task;
@@ -141,14 +141,6 @@ void Scheduler3GUI::handleEnter()
 		qDebug() << QString::fromStdString(thisTask->taskDescription);
 		qDebug() << QString::fromStdString(thisTask->endTime);
 		qDebug() << "-----------------------------------------";
-	}
-	/*
-	for (std::vector<Task*>::size_type i = 0; i != tasks->size(); i++) {
-		qDebug() << QString::fromStdString(tasks->at(i)->initTime);
-		qDebug() << QString::fromStdString(tasks->at(i)->taskDescription);
-		qDebug() << QString::fromStdString(tasks->at(i)->endTime);
-		qDebug() << "-----------------------------------------";
-		//tasks[i]
 	}*/
-	Main::resumeMain();
+	Main::resumeMain(parentPrompter);
 }

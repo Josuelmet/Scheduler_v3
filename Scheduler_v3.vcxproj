@@ -158,6 +158,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Prompter.cpp" />
     <ClCompile Include="scheduler3gui.cpp" />
+    <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="scheduler3gui.h">

@@ -33,7 +33,7 @@ int Prompter::runScheduler3GUI(int argc, char *argv[])
 {
 	a = new QApplication(argc, argv);
 	Scheduler3GUI w;
-	w.setPrompter(this);
 	w.show();
+	w.setPrompter(this);
 	return a->exec();
 }

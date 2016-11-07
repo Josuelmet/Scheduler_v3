@@ -1,21 +1,43 @@
 #include "main.h"
+#include "Writer.h"
 
 int main(int argc, char *argv[])
 {
-	Prompter *prompt = new Prompter(argc, argv);
-	//TODO:jcr Look at the JavaFX project to see how the post-GUI execution (e.g., secondMain) works.
+	Main execute(argc, argv);
+	//Use Ctrl + M + O in Visual Studio to collapse all blocks.
+
+	//TODO:jcr Add a pop-up after Enter?
 	//TODO:jcr Close the GUI when Enter is pressed.
-	//TODO:jcr Execute the rest of this program when Enter is pressed.
-	//TODO:jcr Add the other features of the JavaFX (e.g., Writer) to this project.
 	//TODO:jcr Add the Desktop opener to main.
+	//TODO:jcr Add comments to code.
 	//TODO:jcr The first task goes from right to left when using Tab - why? Order of instantiation in the XML?s
-	//TODO:jcr Check if parentPrompter in scheduler3gui.cpp is null before using it in handleEnter()?
+	//TOOD:jcr CSS? Padding in table? Center the table?
 	return 0;
-
 }
 
 
-void Main::resumeMain()
+Main::Main(int argc, char *argv[])
 {
-	//code here
+	Prompter *prompt = new Prompter(argc, argv);
 }
+
+
+void Main::resumeMain(Prompter* inputPrompter)
+{
+	static const string FILE_NAME = "schedule.html";
+
+	Writer::write(FILE_NAME, inputPrompter->getTasks());
+
+	//openInBrowser(schedule);
+}
+
+/*
+private static void openInBrowser(File file) {
+	try
+	{
+		Desktop.getDesktop().browse(schedule.toURI());
+	} catch (IOException ioe) 
+	{
+	ioe.printStackTrace();
+	}
+}*/

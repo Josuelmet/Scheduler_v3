@@ -20,16 +20,16 @@ public:
 	explicit Scheduler3GUI(QWidget *parent = 0);
 	~Scheduler3GUI();
 
-	void setPrompter(Prompter *p);
+	void setPrompter(Prompter* prompter);
 
 	static const int INPUTS_PER_TASK = 3;
 
 
 private:
 	Ui::Scheduler3GUIClass *ui;
+	Prompter* parentPrompter;
 	QGridLayout *gridScrollLayout;
 	QWidget *scrollContents;
-	Prompter *parentPrompter;
 
 	static const int GRID_INDEX_OF_INIT_TIME = 0;
 	static const int GRID_INDEX_OF_DESCRIPTION = 1;

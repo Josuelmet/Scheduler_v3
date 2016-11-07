@@ -5,10 +5,10 @@
 
 class Main
 {
-
 public:
-	static void resumeMain();
+	Main(int argc, char *argv[]);
 
+	static void resumeMain(Prompter*);
 };
 
 #endif //MAIN_H
