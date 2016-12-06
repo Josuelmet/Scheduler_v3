@@ -96,8 +96,15 @@
         <property name="verticalSpacing">
          <number>12</number>
         </property>
-        <item row="1" column="2">
-         <widget class="QTimeEdit" name="timeEdit_2"/>
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelInitTime">
+          <property name="text">
+           <string>Initial Time</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
         </item>
         <item row="0" column="1">
          <widget class="QLabel" name="labelDescription">
@@ -109,19 +116,6 @@
           </property>
           <property name="text">
            <string>Task Description</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit"/>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="labelInitTime">
-          <property name="text">
-           <string>Initial Time</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -140,6 +134,12 @@
         </item>
         <item row="1" column="0">
          <widget class="QTimeEdit" name="timeEdit"/>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+        <item row="1" column="2">
+         <widget class="QTimeEdit" name="timeEdit_2"/>
         </item>
        </layout>
       </widget>

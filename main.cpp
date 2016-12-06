@@ -1,4 +1,5 @@
 #include "main.h"
+#include <Windows.h>
 #include "Writer.h"
 
 int main(int argc, char *argv[])
@@ -8,9 +9,7 @@ int main(int argc, char *argv[])
 
 	//TODO:jcr Add a pop-up after Enter?
 	//TODO:jcr Close the GUI when Enter is pressed.
-	//TODO:jcr Add the Desktop opener to main.
 	//TODO:jcr Add comments to code.
-	//TODO:jcr The first task goes from right to left when using Tab - why? Order of instantiation in the XML?s
 	//TOOD:jcr CSS? Padding in table? Center the table?
 	return 0;
 }
@@ -27,17 +26,4 @@ void Main::resumeMain(Prompter* inputPrompter)
 	static const string FILE_NAME = "schedule.html";
 
 	Writer::write(FILE_NAME, inputPrompter->getTasks());
-
-	//openInBrowser(schedule);
 }
-
-/*
-private static void openInBrowser(File file) {
-	try
-	{
-		Desktop.getDesktop().browse(schedule.toURI());
-	} catch (IOException ioe) 
-	{
-	ioe.printStackTrace();
-	}
-}*/

@@ -41,12 +41,12 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollContents;
     QGridLayout *gridLayout;
-    QTimeEdit *timeEdit_2;
-    QLabel *labelDescription;
-    QLineEdit *lineEdit;
     QLabel *labelInitTime;
+    QLabel *labelDescription;
     QLabel *labelEndTime;
     QTimeEdit *timeEdit;
+    QLineEdit *lineEdit;
+    QTimeEdit *timeEdit_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -104,10 +104,11 @@ public:
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setHorizontalSpacing(20);
         gridLayout->setVerticalSpacing(12);
-        timeEdit_2 = new QTimeEdit(scrollContents);
-        timeEdit_2->setObjectName(QStringLiteral("timeEdit_2"));
+        labelInitTime = new QLabel(scrollContents);
+        labelInitTime->setObjectName(QStringLiteral("labelInitTime"));
+        labelInitTime->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(timeEdit_2, 1, 2, 1, 1);
+        gridLayout->addWidget(labelInitTime, 0, 0, 1, 1);
 
         labelDescription = new QLabel(scrollContents);
         labelDescription->setObjectName(QStringLiteral("labelDescription"));
@@ -120,17 +121,6 @@ public:
 
         gridLayout->addWidget(labelDescription, 0, 1, 1, 1);
 
-        lineEdit = new QLineEdit(scrollContents);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
-
-        labelInitTime = new QLabel(scrollContents);
-        labelInitTime->setObjectName(QStringLiteral("labelInitTime"));
-        labelInitTime->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(labelInitTime, 0, 0, 1, 1);
-
         labelEndTime = new QLabel(scrollContents);
         labelEndTime->setObjectName(QStringLiteral("labelEndTime"));
         labelEndTime->setAlignment(Qt::AlignCenter);
@@ -141,6 +131,16 @@ public:
         timeEdit->setObjectName(QStringLiteral("timeEdit"));
 
         gridLayout->addWidget(timeEdit, 1, 0, 1, 1);
+
+        lineEdit = new QLineEdit(scrollContents);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
+
+        timeEdit_2 = new QTimeEdit(scrollContents);
+        timeEdit_2->setObjectName(QStringLiteral("timeEdit_2"));
+
+        gridLayout->addWidget(timeEdit_2, 1, 2, 1, 1);
 
         scrollArea->setWidget(scrollContents);
 
@@ -168,8 +168,8 @@ public:
         Scheduler3GUIClass->setWindowTitle(QApplication::translate("Scheduler3GUIClass", "Scheduler3GUI", 0));
         addTask->setText(QApplication::translate("Scheduler3GUIClass", "Add Task", 0));
         enter->setText(QApplication::translate("Scheduler3GUIClass", "Enter", 0));
-        labelDescription->setText(QApplication::translate("Scheduler3GUIClass", "Task Description", 0));
         labelInitTime->setText(QApplication::translate("Scheduler3GUIClass", "Initial Time", 0));
+        labelDescription->setText(QApplication::translate("Scheduler3GUIClass", "Task Description", 0));
         labelEndTime->setText(QApplication::translate("Scheduler3GUIClass", "End Time", 0));
     } // retranslateUi
 
