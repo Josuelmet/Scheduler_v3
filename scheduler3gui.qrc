@@ -1,3 +1,6 @@
 <RCC>
-    <qresource prefix="/Scheduler3GUI"/>
+    <qresource prefix="/Scheduler3GUI">
+        <file>scheduler3gui.css</file>
+        <file>Resources/finished_tactic-clock.ico</file>
+    </qresource>
 </RCC>

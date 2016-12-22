@@ -56,6 +56,9 @@ public:
         if (Scheduler3GUIClass->objectName().isEmpty())
             Scheduler3GUIClass->setObjectName(QStringLiteral("Scheduler3GUIClass"));
         Scheduler3GUIClass->resize(500, 550);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Scheduler3GUI/Resources/finished_tactic-clock.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        Scheduler3GUIClass->setWindowIcon(icon);
         centralWidget = new QWidget(Scheduler3GUIClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
