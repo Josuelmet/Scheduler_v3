@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	//TODO:jcr Add a pop-up after Enter?
 	//TODO:jcr Close the GUI when Enter is pressed.
 	//TODO:jcr Add comments to code.
+	//TODO:jcr Replace CSS with QSS.
 	//TOOD:jcr CSS? Padding in table? Center the table?
 	return 0;
 }

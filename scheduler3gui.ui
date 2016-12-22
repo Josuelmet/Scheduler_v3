@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Scheduler3GUI</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="scheduler3gui.qrc">
-    <normaloff>:/Scheduler3GUI/Resources/finished_tactic-clock.ico</normaloff>:/Scheduler3GUI/Resources/finished_tactic-clock.ico</iconset>
-  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
